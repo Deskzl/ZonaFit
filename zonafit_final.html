@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZonaFit — Tu Tienda Fitness en El Salvador</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./zonafit_styles.css">
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">ZonaFit</a>
+  <ul class="nav-links">
+    <li><a href="#categorias">Categorías</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#como-funciona">Cómo funciona</a></li>
+    <li><a href="#pedidos">Pedidos</a></li>
+    <li><a href="#menu-cafe">Menú Café</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <span id="navCta"><a href="#" class="nav-links a nav-cta" onclick="openLogin(event)" style="text-decoration:none;color:#0d0d0d;font-size:0.85rem;font-weight:700;background:var(--accent);padding:0.5rem 1.25rem;border-radius:4px;letter-spacing:1px;text-transform:uppercase;">Iniciar sesión</a></span>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Tienda Online · El Salvador</div>
+    <h1>Tu zona<br>de <span>poder</span></h1>
+    <p class="hero-sub">Suplementos, equipos y ropa fitness entregados a tu puerta. Paga contra entrega o pide por WhatsApp.</p>
+    <div class="hero-actions">
+      <a href="#productos" class="btn-primary">Ver productos →</a>
+      <a href="#pedidos" class="btn-outline">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Pago seguro</div></div>
+    <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Entrega rápida</div></div>
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Productos</div></div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span>Envío a toda la república</span>
+    <span>Pago contra entrega</span>
+    <span>Pide por WhatsApp</span>
+    <span>Suplementos originales</span>
+    <span>Equipo de gym</span>
+    <span>Ropa deportiva</span>
+    <span>Envío a toda la república</span>
+    <span>Pago contra entrega</span>
+    <span>Pide por WhatsApp</span>
+    <span>Suplementos originales</span>
+    <span>Equipo de gym</span>
+    <span>Ropa deportiva</span>
+  </div>
+</div>
+
+<!-- CATEGORAS -->
+<section id="categorias">
+  <div class="section-label">Explorar</div>
+  <h2 class="section-title">Categorías</h2>
+  <p class="section-sub">Encuentra todo lo que necesitas para alcanzar tus metas fitness.</p>
+  <div class="cats-grid">
+    <a href="#productos" class="cat-card" onclick="filterCat('suplementos')">
+      <span class="cat-icon">💊</span>
+      <div class="cat-name">Suplementos</div>
+      <div class="cat-count">Proteínas · Creatina · Pre-workout</div>
+    </a>
+    <a href="#productos" class="cat-card" onclick="filterCat('equipos')">
+      <span class="cat-icon"></span>
+      <div class="cat-name">Equipos de Gym</div>
+      <div class="cat-count">Mancuernas · Barras · Accesorios</div>
+    </a>
+    <a href="#productos" class="cat-card" onclick="filterCat('ropa')">
+      <span class="cat-icon">👕</span>
+      <div class="cat-name">Ropa Deportiva</div>
+      <div class="cat-count">Camisetas · Shorts · Leggings</div>
+    </a>
+    <a href="#productos" class="cat-card" onclick="filterCat('accesorios')">
+      <span class="cat-icon">🎽</span>
+      <div class="cat-name">Accesorios</div>
+      <div class="cat-count">Guantes · Cinturones · Bandas</div>
+    </a>
+    <a href="#productos" class="cat-card" onclick="filterCat('nutricion')">
+      <span class="cat-icon">🥗</span>
+      <div class="cat-name">Nutrición</div>
+      <div class="cat-count">Barras · Snacks · Vitaminas</div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="products-header">
+    <div>
+      <div class="section-label">Tienda</div>
+      <h2 class="section-title">Productos destacados</h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="setFilter('todos',this)">Todos</button>
+      <button class="filter-tab" onclick="setFilter('suplementos',this)">Suplementos</button>
+      <button class="filter-tab" onclick="setFilter('equipos',this)">Equipos</button>
+      <button class="filter-tab" onclick="setFilter('ropa',this)">Ropa</button>
+      <button class="filter-tab" onclick="setFilter('accesorios',this)">Accesorios</button>
+    </div>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="section-label">Proceso</div>
+  <h2 class="section-title">Cómo funciona</h2>
+  <p class="section-sub">Comprar en ZonaFit es rápido y seguro. Dos formas de pedir.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Elige tus productos</div>
+      <div class="step-desc">Navega nuestro catálogo y agrega los productos que quieras a tu carrito.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Completa tu pedido</div>
+      <div class="step-desc">Llena el formulario con tu dirección de entrega. Sin tarjeta de crédito requerida.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Confirmación inmediata</div>
+      <div class="step-desc">Recibirás una confirmación por WhatsApp con el detalle y tiempo de entrega.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-title">Paga al recibir</div>
+      <div class="step-desc">Entregamos en tu puerta. Pagas contra entrega, 100% seguro y sin riesgos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PEDIDOS WHATSAPP -->
+<section id="pedidos">
+  <div class="wa-block">
+    <div class="wa-icon">💬</div>
+    <div class="section-label" style="text-align:center">Alternativa rápida</div>
+    <h2 class="section-title" style="text-align:center">Pide por<br><span style="color:var(--accent)">WhatsApp</span></h2>
+    <p style="color:var(--gray-300);line-height:1.7;margin:1rem auto 2rem;max-width:420px;text-align:center;">¿Prefieres hablar directo? Escríbenos por WhatsApp y te atendemos al instante. Comparte tu lista y te damos precio y disponibilidad de inmediato.</p>
+    <a href="https://api.whatsapp.com/send/?phone=50370024354&text=Hola%20ZonaFit%2C%20quiero%20hacer%20un%20pedido&type=phone_number&app_absent=0" target="_blank" class="btn-primary" style="display:inline-flex">
+      💬 Escribir por WhatsApp
+    </a>
+    <div class="hours-pill">Lunes a Viernes: 7:00 a.m. a 7:00 p.m. | Sábado: 7:00 a.m. a 2:00 p.m.</div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-label">Contacto</div>
+  <h2 class="section-title">Escr&iacute;benos</h2>
+  <div class="contact-grid">
+    <div>
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input id="contactName" type="text" placeholder="Tu nombre">
+      </div>
+      <div class="form-group">
+        <label>Correo electr&oacute;nico</label>
+        <input id="contactEmail" type="email" placeholder="correo@ejemplo.com">
+      </div>
+      <div class="form-group">
+        <label>Asunto</label>
+        <select id="contactAsunto">
+          <option>Consulta sobre producto</option>
+          <option>Estado de mi pedido</option>
+          <option>Devoluci&oacute;n o cambio</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea id="contactMensaje" placeholder="&iquest;En qu&eacute; te podemos ayudar?"></textarea>
+      </div>
+      <button class="btn-primary" onclick="sendMsg()" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif">Enviar mensaje</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="info-icon">&#128205;</div>
+        <div>
+          <div class="info-label">Ubicaci&oacute;n</div>
+          <div class="info-val">Ahuachap&aacute;n, El Salvador</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">&#128172;</div>
+        <div>
+          <div class="info-label">WhatsApp</div>
+          <div class="info-val"><a href="https://api.whatsapp.com/send/?phone=50370024354&text=Hola%20ZonaFit&type=phone_number&app_absent=0" target="_blank" style="color:var(--accent);text-decoration:none">+503 7002 4354</a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">&#128247;</div>
+        <div>
+          <div class="info-label">Instagram</div>
+          <div class="info-val"><a href="https://www.instagram.com/zonafit.sv" target="_blank" style="color:var(--accent);text-decoration:none">@zonafit.sv</a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">&#128230;</div>
+        <div>
+          <div class="info-label">Env&iacute;os</div>
+          <div class="info-val">A toda la Rep&uacute;blica de El Salvador</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">&#128338;</div>
+        <div>
+          <div class="info-label">Horario de atenci&oacute;n</div>
+          <div class="info-val">Lunes a Viernes: 7:00 a.m. a 7:00 p.m.<br>S&aacute;bado: 7:00 a.m. a 2:00 p.m.</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">&#128179;</div>
+        <div>
+          <div class="info-label">M&eacute;todos de pago</div>
+          <div class="info-val">Contra entrega &middot; WhatsApp</div>
+        </div>
+      </div>
+      <div class="map-window">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=W5C2%2B7MV%2C%202%20AV%20sur%2C%20Ahuachap%C3%A1n&output=embed"
+          title="Ubicaci&oacute;n ZonaFit">
+        </iframe>
+        <div class="map-meta">
+          <div class="info-val" style="font-size:0.82rem">W5C2+7MV, 2 AV sur, Ahuachap&aacute;n.</div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=W5C2%2B7MV%2C%202%20AV%20sur%2C%20Ahuachap%C3%A1n" target="_blank">Abrir en Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENÚ CAFÉ -->
+<section id="menu-cafe">
+  <div class="menu-hero">
+    <div class="menu-subtitle">ZonaFit Café · Tu Punto Saludable</div>
+    <h2 class="section-title" style="font-size:clamp(3rem,7vw,5.5rem);letter-spacing:4px;">MENÚ</h2>
+    <p class="section-sub" style="margin:0 auto;text-align:center;">Comida real, macros reales. Diseñado para rendir.</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="menu-nav-tabs">
+    <button class="menu-tab active" onclick="showMenuTab('breakfast',this)">🌅 Breakfast</button>
+    <button class="menu-tab" onclick="showMenuTab('lunch',this)">☀ Lunch</button>
+    <button class="menu-tab" onclick="showMenuTab('drinks',this)">🥤 Drinks & Dessert</button>
+  </div>
+
+  <!-- ── BREAKFAST ── -->
+  <div id="menu-breakfast" class="menu-section active">
+    <div class="menu-category-title"><span>🌅</span> BREAKFAST</div>
+    <div class="menu-category-line"></div>
+    <div class="menu-grid" id="breakfastGrid"></div>
+  </div>
+
+  <!-- ── LUNCH ── -->
+  <div id="menu-lunch" class="menu-section">
+    <div class="menu-category-title"><span>☀</span> LUNCH</div>
+    <div class="menu-category-line"></div>
+    <div class="menu-grid" id="lunchGrid"></div>
+  </div>
+
+  <!-- ── DRINKS & DESSERT ── -->
+  <div id="menu-drinks" class="menu-section">
+    <div class="menu-category-title"><span>🥤</span> DRINKS &amp; DESSERT</div>
+    <div class="menu-category-line"></div>
+
+    <div class="drinks-grid">
+      <!-- DRINKS -->
+      <div class="drinks-col">
+        <h3>Drinks</h3>
+        <ul class="drinks-list">
+          <li><span class="drink-name">Gaseosas</span><span class="drink-price">$1.00</span></li>
+          <li><span class="drink-name">Gatorade</span><span class="drink-price">$1.50</span></li>
+          <li><span class="drink-name">RedBull</span><span class="drink-price">$2.50</span></li>
+          <li><span class="drink-name">Monster</span><span class="drink-price">$3.00</span></li>
+          <li><span class="drink-name">Electrolit</span><span class="drink-price">$2.50</span></li>
+          <li><span class="drink-name">Agua</span><span class="drink-price">$0.60</span></li>
+          <li><span class="drink-name">Espresso</span><span class="drink-price">$1.50</span></li>
+          <li><span class="drink-name">Americano</span><span class="drink-price">$1.50</span></li>
+          <li><span class="drink-name">Cappuccino</span><span class="drink-price">$2.50</span></li>
+          <li><span class="drink-name">Café Frío</span><span class="drink-price">$2.00</span></li>
+          <li><span class="drink-name">Refresco Jamaica</span><span class="drink-price">$1.00</span></li>
+          <li><span class="drink-name">Limonada Brasileña</span><span class="drink-price">$1.50</span></li>
+          <li><span class="drink-name">Jugo de Naranja</span><span class="drink-price">$1.25</span></li>
+          <li><span class="drink-name">Matcha</span><span class="drink-price">$3.50</span></li>
+          <li>
+            <span class="drink-name">
+              Shake 🥤
+              <div class="shake-note">Arma tu propio shake · leche incluida · leche de almendras +$1</div>
+            </span>
+            <span class="drink-price">$1.00</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TOPPINGS -->
+      <div class="drinks-col">
+        <h3>Toppings</h3>
+        <ul class="drinks-list">
+          <li><span class="drink-name">Leche</span><span class="drink-price">$0.50</span></li>
+          <li><span class="drink-name">Avena</span><span class="drink-price">$0.50</span></li>
+          <li><span class="drink-name">Mantequilla de Maní</span><span class="drink-price">$0.25</span></li>
+          <li><span class="drink-name">Miel</span><span class="drink-price">$0.25</span></li>
+          <li><span class="drink-name">Nestum</span><span class="drink-price">$0.50</span></li>
+          <li><span class="drink-name">Proteína</span><span class="drink-price">$2.00 / $1.75</span></li>
+          <li><span class="drink-name">Pre Entreno</span><span class="drink-price">$2.00</span></li>
+          <li><span class="drink-name">Creatina</span><span class="drink-price">$1.00</span></li>
+          <li><span class="drink-name">Fruta</span><span class="drink-price">$0.50</span></li>
+          <li><span class="drink-name">Banano</span><span class="drink-price">$0.25</span></li>
+          <li><span class="drink-name">Semillas</span><span class="drink-price">$0.50</span></li>
+          <li><span class="drink-name">Yogurt Griego</span><span class="drink-price">$0.50</span></li>
+          <li><span class="drink-name">Galletas Salmas</span><span class="drink-price">$0.50</span></li>
+        </ul>
+
+        <div class="dessert-box">
+          <h3>Dessert </h3>
+          <ul class="drinks-list">
+            <li><span class="drink-name">Postre del Día</span><span class="drink-price">$3.00</span></li>
+            <li><span class="drink-name">Galleta de Avena</span><span class="drink-price">$0.50</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ZonaFit</div>
+  <div style="font-size:0.85rem;color:var(--gray-300);margin-bottom:1rem">Tu tienda fitness en El Salvador</div>
+  <div class="footer-links">
+    <a href="#categorias">Categorías</a>
+    <a href="#productos">Productos</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#menu-cafe">Menú Café</a>
+    <a href="#pedidos">Pedidos WhatsApp</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#" onclick="openLogin(event)">Mi cuenta</a>
+  </div>
+  <div style="color:var(--gray-300);font-size:0.75rem">© 2025 ZonaFit · Ahuachapán, El Salvador · Todos los derechos reservados</div>
+</footer>
+
+<!-- MODAL LOGIN -->
+<div class="modal-overlay" id="loginModal" onclick="closeLoginOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <div class="modal-title">ZonaFit</div>
+    <div class="modal-sub">Accede a tu cuenta para ver tus pedidos</div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" onclick="switchTab('login',this)">Iniciar sesión</button>
+      <button class="modal-tab" onclick="switchTab('register',this)">Registrarse</button>
+    </div>
+    <div id="loginForm">
+      <div class="form-group"><label>Correo electrónico</label><input id="loginEmail" type="email" placeholder="correo@ejemplo.com"></div>
+      <div class="form-group"><label>Contraseña</label><input id="loginPass" type="password" placeholder="••••••••"></div>
+      <button class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;justify-content:center" onclick="doLogin()">Entrar →</button>
+    </div>
+    <div id="registerForm" style="display:none">
+      <div class="form-group"><label>Nombre completo</label><input id="regName" type="text" placeholder="Tu nombre"></div>
+      <div class="form-group"><label>Correo electrónico</label><input id="regEmail" type="email" placeholder="correo@ejemplo.com"></div>
+      <div class="form-group"><label>Contraseña</label><input id="regPass" type="password" placeholder="Mínimo 8 caracteres"></div>
+      <button class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;justify-content:center" onclick="doRegister()">Crear cuenta →</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART BUBBLE -->
+<div class="cart-bubble" onclick="openCart()">
+  <span class="cart-icon" aria-hidden="true">&#128722;</span>
+  <div class="cart-count" id="cartCount" style="display:none">0</div>
+</div>
+<span id="cartTicker" onclick="openCart()"></span>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://api.whatsapp.com/send/?phone=50370024354&text=Hola%20ZonaFit%2C%20quiero%20hacer%20un%20pedido&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Pedir por WhatsApp"><span aria-hidden="true">WA</span></a>
+
+<!-- NOTIF -->
+<div class="notif" id="notif"></div>
+
+<!-- FOOD DETAIL MODAL -->
+<div class="modal-overlay" id="foodModal" onclick="closeFoodModalOutside(event)">
+  <div class="modal" style="max-width:560px;padding:0;overflow:hidden">
+    <button class="modal-close" onclick="closeFoodModal()" style="position:absolute;top:0.75rem;right:0.75rem;z-index:10;background:rgba(13,13,13,0.7);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center">✕</button>
+    <img id="foodModalImg" class="food-modal-img" src="" alt="">
+    <div class="food-modal-body">
+      <div id="foodModalName" class="food-modal-name"></div>
+      <div id="foodModalDesc" class="food-modal-desc"></div>
+      <div id="foodModalMacros" class="food-modal-macros"></div>
+      <div class="food-modal-footer">
+        <div id="foodModalPrice" class="food-modal-price"></div>
+        <button id="foodModalCartBtn" class="btn-primary" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif" onclick="addFoodToCart()">
+          + Agregar al pedido
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal-overlay" id="cartModal" onclick="closeCartOutside(event)">
+  <div class="modal" style="max-width:500px">
+    <button class="modal-close" onclick="closeCart()">✕</button>
+    <div class="modal-title" style="margin-bottom:0.25rem">🛒 Tu Carrito</div>
+    <div class="modal-sub" id="cartSubtitle">Tu carrito está vacío</div>
+    <div id="cartItems" style="margin:1.25rem 0;max-height:260px;overflow-y:auto"></div>
+    <div id="cartFooter" style="display:none">
+      <!-- Promo code -->
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem">
+        <input id="promoInput" type="text" placeholder="Código promocional" style="flex:1;background:var(--gray-700);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.6rem 0.9rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;text-transform:uppercase;outline:none">
+        <button onclick="applyPromo()" style="background:var(--gray-700);border:1px solid rgba(200,242,58,0.3);color:var(--accent);padding:0.6rem 1rem;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:700;white-space:nowrap;transition:all 0.2s" onmouseover="this.style.background='var(--accent)';this.style.color='var(--black)'" onmouseout="this.style.background='var(--gray-700)';this.style.color='var(--accent)'">Aplicar</button>
+      </div>
+      <!-- Totals -->
+      <div style="background:var(--gray-700);border-radius:8px;padding:1rem;margin-bottom:1rem">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:var(--gray-300);margin-bottom:0.5rem"><span>Subtotal</span><span id="cartSubtotalEl">$0.00</span></div>
+        <div id="cartPromoRow" style="display:none;justify-content:space-between;font-size:0.85rem;color:#4ade80;margin-bottom:0.5rem"><span>🎉 Descuento 3%</span><span id="cartPromoSaving"></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.5rem;border-top:1px solid rgba(255,255,255,0.08)">
+          <span style="font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px">Total</span>
+          <span id="cartTotal" style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--accent)">$0.00</span>
+        </div>
+      </div>
+      <!-- Address hint -->
+      <div id="cartAddrHint" style="display:none;font-size:0.78rem;color:var(--gray-300);margin-bottom:1rem;padding:0.6rem 0.85rem;background:rgba(200,242,58,0.06);border-radius:6px;border-left:2px solid var(--accent)"></div>
+      <!-- Actions -->
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+        <button onclick="checkoutWhatsApp()" class="btn-primary" style="flex:1;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;justify-content:center;font-size:0.9rem">💬 Pedir por WhatsApp</button>
+        <button onclick="clearCart()" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--gray-300);padding:0.9rem 1.1rem;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.85rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='var(--gray-300)'">Vaciar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE MODAL -->
+<div class="modal-overlay" id="profileModal" onclick="closeProfileOutside(event)">
+  <div class="modal" style="max-width:440px">
+    <button class="modal-close" onclick="closeProfile()">✕</button>
+    <div class="modal-title">👤 Mi Perfil</div>
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <img id="profileAvatarPreview" style="display:none;width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);margin-bottom:0.75rem">
+      <div><label style="cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;background:var(--gray-700);border:1px solid rgba(200,242,58,0.2);color:var(--accent);padding:0.5rem 1rem;border-radius:6px;font-size:0.82rem;font-weight:600">📷 Cambiar foto<input type="file" accept="image/*" onchange="handleAvatarUpload(event)" style="display:none"></label></div>
+    </div>
+    <div class="form-group"><label>Nombre</label><div id="profileName" style="background:var(--gray-700);padding:0.75rem 1rem;border-radius:4px;font-size:0.9rem;color:var(--gray-100);border:1px solid rgba(255,255,255,0.06)"></div></div>
+    <div class="form-group"><label>Correo</label><div id="profileEmail" style="background:var(--gray-700);padding:0.75rem 1rem;border-radius:4px;font-size:0.9rem;color:var(--gray-100);border:1px solid rgba(255,255,255,0.06)"></div></div>
+    <div class="form-group">
+      <label> Dirección de entrega</label>
+      <textarea id="profileAddr" placeholder="Colonia, calle, número de casa / apto…" style="background:var(--gray-700);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.75rem 1rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.88rem;width:100%;resize:vertical;min-height:70px;outline:none"></textarea>
+      <span style="font-size:0.72rem;color:var(--gray-300);display:block;margin-top:4px">Esta dirección se incluirá automáticamente al pedir por WhatsApp.</span>
+    </div>
+    <button onclick="saveProfile()" class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;justify-content:center">Guardar cambios</button>
+  </div>
+</div>
+
+<!-- ADMIN OVERLAY — access via /#admin -->
+<div id="adminOverlay" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(5,5,5,0.97);overflow-y:auto">
+  <!-- Login screen -->
+  <div id="adminLoginScreen" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem">
+    <div style="background:var(--gray-800);border:1px solid rgba(200,242,58,0.15);border-radius:12px;padding:2.5rem;width:100%;max-width:360px">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:3px;color:var(--accent)">ADMIN</div>
+        <div style="font-size:0.8rem;color:var(--gray-300);letter-spacing:2px;text-transform:uppercase">ZonaFit Panel</div>
+      </div>
+      <div class="form-group"><label>Usuario</label><input id="adminUser" type="text" autocomplete="off" placeholder="••••••••" style="width:100%" onkeydown="if(event.key==='Enter')doAdminLogin()"></div>
+      <div class="form-group"><label>Contraseña</label><input id="adminPass" type="password" autocomplete="off" placeholder="••••••••" style="width:100%" onkeydown="if(event.key==='Enter')doAdminLogin()"></div>
+      <div id="adminLoginError" style="display:none;color:var(--red);font-size:0.8rem;margin-bottom:0.75rem;text-align:center"></div>
+      <button onclick="doAdminLogin()" class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;justify-content:center;margin-top:0.5rem">Acceder al panel →</button>
+      <div style="text-align:center;margin-top:1.25rem"><button onclick="closeAdmin()" style="background:none;border:none;color:var(--gray-300);font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif"> Volver al sitio</button></div>
+    </div>
+  </div>
+  <!-- Panel screen -->
+  <div id="adminPanelScreen" style="display:none;width:100%;max-width:1050px;padding:2rem;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;padding-top:1rem">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:3px;color:var(--accent)">PANEL ADMIN</div>
+        <div style="font-size:0.8rem;color:var(--gray-300);letter-spacing:1px">ZonaFit · Gestión de contenido</div>
+      </div>
+      <div style="display:flex;gap:0.75rem">
+        <button onclick="closeAdmin()" style="background:var(--gray-700);border:1px solid rgba(255,255,255,0.1);color:var(--gray-100);padding:0.6rem 1.2rem;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.85rem"> Ver sitio</button>
+        <button onclick="adminLogout()" style="background:rgba(255,59,48,0.1);border:1px solid rgba(255,59,48,0.3);color:var(--red);padding:0.6rem 1.2rem;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.85rem">Cerrar sesión</button>
+      </div>
+    </div>
+    <!-- Admin tabs -->
+    <div style="display:flex;gap:0.5rem;margin-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;flex-wrap:wrap">
+      <button class="admin-tab active" onclick="switchAdminTab('products',this)"> Productos</button>
+      <button class="admin-tab" onclick="switchAdminTab('food',this)"> Menú Café</button>
+    </div>
+    <!-- Products tab -->
+    <div id="adminTab-products">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;margin-bottom:1.25rem;color:var(--accent)">PRODUCTOS DE TIENDA</h3>
+      <div class="admin-closed-card">
+        <div>
+          <div class="admin-closed-title">Modo Cerrado Por Horario</div>
+          <div class="admin-closed-sub">Si activas esto, la pagina mostrara "Cerrado" y se bloquearan pedidos temporalmente.</div>
+        </div>
+        <button id="siteClosedToggle" class="admin-closed-toggle" onclick="toggleSiteClosed()">
+          Activar modo cerrado
+        </button>
+      </div>
+      <div class="admin-kpis">
+        <div class="admin-kpi"><div class="admin-kpi-val" id="kpiProducts">0</div><div class="admin-kpi-label">Productos</div></div>
+        <div class="admin-kpi"><div class="admin-kpi-val" id="kpiStock">0</div><div class="admin-kpi-label">Stock total</div></div>
+        <div class="admin-kpi"><div class="admin-kpi-val" id="kpiLow">0</div><div class="admin-kpi-label">Stock bajo (≤5)</div></div>
+      </div>
+      <div class="admin-toolbar">
+        <input id="adminProdSearch" class="admin-search" type="text" placeholder="Buscar por nombre o categoría..." oninput="renderAdminProducts()">
+      </div>
+      <div style="overflow-x:auto;margin-bottom:2rem"><table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+        <thead><tr style="border-bottom:2px solid rgba(200,242,58,0.2);color:var(--gray-300);text-transform:uppercase;font-size:0.72rem;letter-spacing:1px">
+          <th style="text-align:left;padding:0.6rem 0.5rem">Producto</th>
+          <th style="padding:0.6rem 0.5rem">Precio $</th>
+          <th style="padding:0.6rem 0.5rem">Stock</th>
+          <th style="padding:0.6rem 0.5rem">Badge</th>
+          <th style="padding:0.6rem 0.5rem">Descripción</th>
+          <th style="padding:0.6rem 0.5rem">Eliminar</th>
+        </tr></thead>
+        <tbody id="adminProductsTable"></tbody>
+      </table></div>
+      <!-- Add product form -->
+      <div style="background:var(--gray-700);border:1px solid rgba(200,242,58,0.1);border-radius:10px;padding:1.5rem">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;margin-bottom:1rem">+ AGREGAR PRODUCTO</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:0.75rem;margin-bottom:1rem">
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Nombre</label><input id="newProdName" type="text" placeholder="Nombre…" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Precio $</label><input id="newProdPrice" type="number" step="0.01" placeholder="24.99" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Categoría</label><select id="newProdCat" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem"><option value="suplementos">Suplementos</option><option value="equipos">Equipos</option><option value="accesorios">Accesorios</option><option value="ropa">Ropa</option></select></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Stock</label><input id="newProdStock" type="number" placeholder="10" value="10" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Icono emoji</label><input id="newProdIcon" type="text" placeholder="💊" maxlength="4" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none"></div>
+          <div style="grid-column:1/-1"><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Descripción</label><textarea id="newProdDesc" placeholder="Descripción corta del producto..." style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;resize:vertical;min-height:56px;outline:none"></textarea></div>
+          <div style="grid-column:1/-1"><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Foto del producto (opcional, máx 800KB)</label><input id="newProdImg" type="file" accept="image/*" style="font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--gray-300)"></div>
+        </div>
+        <button onclick="addNewProduct()" class="btn-primary" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif">Agregar producto</button>
+      </div>
+    </div>
+    <!-- Food tab -->
+    <div id="adminTab-food" style="display:none">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;margin-bottom:1.25rem;color:var(--accent)">MENÚ CAFÉ</h3>
+      <div style="overflow-x:auto;margin-bottom:2rem"><table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+        <thead><tr style="border-bottom:2px solid rgba(200,242,58,0.2);color:var(--gray-300);text-transform:uppercase;font-size:0.72rem;letter-spacing:1px">
+          <th style="text-align:left;padding:0.6rem 0.5rem">Platillo</th>
+          <th style="padding:0.6rem 0.5rem">Precio $</th>
+          <th style="padding:0.6rem 0.5rem">Stock/día</th>
+          <th style="padding:0.6rem 0.5rem">Eliminar</th>
+        </tr></thead>
+        <tbody id="adminFoodTable"></tbody>
+      </table></div>
+      <!-- Add food form -->
+      <div style="background:var(--gray-700);border:1px solid rgba(200,242,58,0.1);border-radius:10px;padding:1.5rem">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;margin-bottom:1rem">+ AGREGAR PLATILLO</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem;margin-bottom:0.75rem">
+          <div style="grid-column:1/-1"><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Nombre del platillo</label><input id="newFoodName" type="text" placeholder="Nombre…" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div style="grid-column:1/-1"><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Descripción / ingredientes</label><textarea id="newFoodDesc" placeholder="Ingredientes…" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;resize:vertical;min-height:60px;outline:none"></textarea></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Precio $</label><input id="newFoodPrice" type="number" step="0.01" placeholder="6.00" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Categoría</label><select id="newFoodCat" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem"><option value="breakfast">Breakfast</option><option value="lunch">Lunch</option></select></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Stock/día</label><input id="newFoodStock" type="number" placeholder="99" value="99" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Calorías</label><input id="newFoodCal" type="number" placeholder="450" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Proteína g</label><input id="newFoodProt" type="number" placeholder="30" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Carbos g</label><input id="newFoodCarbs" type="number" placeholder="40" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Grasas g</label><input id="newFoodFat" type="number" placeholder="12" style="width:100%;background:var(--gray-800);border:1px solid rgba(200,242,58,0.2);color:var(--white);padding:0.55rem 0.75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none"></div>
+          <div style="grid-column:1/-1"><label style="font-size:0.72rem;color:var(--gray-300);display:block;margin-bottom:4px">Foto del platillo (máx 800KB)</label><input id="newFoodImg" type="file" accept="image/*" style="font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--gray-300)"></div>
+        </div>
+        <button onclick="addNewFood()" class="btn-primary" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif">Agregar al menú</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="siteClosedBanner" class="site-closed-banner" style="display:none">
+  <div class="site-closed-pill">CERRADO POR HORARIO</div>
+  <h3>Estamos fuera del horario de atencion</h3>
+  <p>Regresamos en nuestro horario normal. Gracias por tu comprension.</p>
+</div>
+
+<script src="./zonafit_app.js" defer></script>
+</body>
+</html>
